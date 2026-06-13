@@ -1,0 +1,36 @@
+{
+  "name": "pkos-server",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
+    "build": "tsc && npm run copy-client",
+    "copy-client": "node -e \"const fs=require('fs');const path=require('path');const src=path.join(__dirname,'../client/dist');const dest=path.join(__dirname,'dist/public');if(fs.existsSync(src)){fs.cpSync(src,dest,{recursive:true});console.log('Client assets copied to server/dist/public')}else{console.log('No client dist found, skipping copy')}\"",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "@google/genai": "^1.0.0",
+    "better-sqlite3": "^9.4.3",
+    "cheerio": "^1.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.3.1",
+    "helmet": "^7.1.0",
+    "morgan": "^1.10.0",
+    "multer": "^2.1.1",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.10",
+    "@types/cheerio": "^0.22.35",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/morgan": "^1.9.9",
+    "@types/multer": "^2.1.0",
+    "@types/node": "^22.19.21",
+    "@types/uuid": "^9.0.8",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.4.5"
+  }
+}

@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: pkos-app
+    runtime: node
+    region: oregon
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm run start
+    envVars:
+      - key: NODE_VERSION
+        value: "22.5.0"
+      - key: NODE_ENV
+        value: production
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: PORT
+        value: "10000"
+      - key: DB_PATH
+        value: /data/pkos.db
+    disk:
+      name: pkos-data
+      mountPath: /data
+      sizeGB: 1

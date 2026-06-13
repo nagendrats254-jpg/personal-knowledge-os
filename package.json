@@ -1,0 +1,17 @@
+{
+  "name": "personal-knowledge-os",
+  "version": "1.0.0",
+  "description": "AI-Powered Personal Knowledge Operating System",
+  "private": true,
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "scripts": {
+    "dev:server": "cd server && npm run dev",
+    "dev:client": "cd client && npm run dev",
+    "install:all": "npm install && cd server && npm install && cd ../client && npm install",
+    "build": "cd client && npm run build && cd ../server && npm run build",
+    "start": "node server/dist/index.js",
+    "postinstall": "cd server && npm install && cd ../client && npm install"
+  }
+}
